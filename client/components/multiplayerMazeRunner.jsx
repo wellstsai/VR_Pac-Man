@@ -223,7 +223,7 @@ export default class MultiplayerMazeRunner extends React.Component {
     return boxes;
   };
   var createScene = function () {
-
+    engine.fps;
     // Now create a basic Babylon Scene object
     var scene = new BABYLON.Scene(engine);
     //var gravityVector = new BABYLON.Vector3(0,-9.81, 0);
@@ -655,6 +655,8 @@ export default class MultiplayerMazeRunner extends React.Component {
     })
     // });
     engine.runRenderLoop(function () {
+      BABYLON.SceneOptimizer.OptimizeAsync(scene);
+      console.log(engine.fps);
       socket.on('error', console.error.bind(console));
       // socket.on('otherPlayerCoords', function(data) {
       //   console.log(data);

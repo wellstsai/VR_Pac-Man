@@ -34,12 +34,14 @@ export default class ProfilePage extends React.Component {
       success: function(data) {
         if (!data.username) {
           // console.log('compwillmount profpage data', data);
-          alert('Authentication error');
+
+          alert('Authentication error!!!');
+          console.log('data.username', data.username)
           this.props.router.push({pathname: '/'});
         } else {
           console.log('reset high scores state');
           console.log(data);
-          window.username = data.user;
+          window.username = data.username;
           this.setState({
             username: data.username,
             spHighScore: data.spHighScores_VR,
